@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./二次元の调查问卷.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>二次元の调查问卷</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectOption = document.getElementById("dropdown");
+            const otherInputContainer = document.getElementById("otherInputContainer");
+
+            selectOption.addEventListener("change", function () {
+                if (selectOption.value == "other") {
+                    otherInputContainer.style.display = "block";
+                } else {
+                    otherInputContainer.style.display = "none"
+                }
+            });
+        })
+        document.addEventListener("DOMContentLoaded", function () {
+            const active = document.getElementById("otheractive");
+            const OtherActive = document.getElementById("OtherActive");
+
+            active.addEventListener("change", function () {
+                if (active.checked) {
+                    OtherActive.style.display = "block";
+                } else {
+                    OtherActive.style.display = "none"
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <h1 id="title">二次元の调查问卷</h1>
+    <h2>我们度过的每个平凡的日常，都是接连不断发生的奇迹</h2>
+    <p id="description">这是一个对你如何与二次元的世界相遇的调查问卷</p>
+    <form id="survey-form" class="survey-form">
+        <div id="basic information">
+            <label for="name" id="name-label">
+                <p>名字</p>
+                <input class="in-input" required placeholder="请输入你的姓名" id="name" type="text">
+            </label>
+            <label for="email" id="email-label">
+                <p>邮箱</p>
+                <input class="in-input" required id="email" type="email" placeholder="请输入你的邮箱">
+            </label>
+            <label for="number" id="number-label">
+                <p>年龄（可选）</p>
+                <input class="in-input" max="120" min="10" id="number" type="number" placeholder="请输入你的年龄">
+            </label>
+        </div>
+        <div id="identity">
+            <p class="blank">你现在的生活状态是？</p>
+            <label for="student" class="in-input">
+                <input name="life status" type="radio" id="student" value="student" class="inline">
+                学生
+            </label>
+            <label for="laborer" class="in-input">
+                <input name="life status" type="radio" id="laborer" value="laborer" class="inline">
+                打工人
+            </label>
+            <label for="other" class="in-input">
+                <input name="life status" type="radio" id="other" value="other" class="inline">
+                其他
+            </label>
+        </div>
+        <div id="dropdown-container">
+            <label for="dropdown">
+                <p class="blank">你是通过什么途径知道二次元的？</p>
+                <select name="time" id="dropdown" class="in-input">
+                    <option id="anime">看动漫</option>
+                    <option id="manga">看漫画</option>
+                    <option id="song">听ACG歌曲</option>
+                    <option id="friend">朋友推荐</option>
+                    <option id="anime convention">逛漫展</option>
+                    <option id="game">二次元游戏</option>
+                    <option id="novel">小说（轻小说）</option>
+                    <option id="other" value="other">其他</option>
+                </select>
+            </label>
+        </div>
+        <div id="otherInputContainer" style="display: none;">
+            <label for="otherInputText">
+                <input placeholder="请输入其他途径" type="text" class="in-input" id="otherInputText">
+            </label>
+        </div>
+        <div id="active">
+            <p class="blank">你现在在进行哪些二次元の活动呢？</p>
+            <label for="anime" class="in-input">
+                <input id="anime" type="checkbox" name="active" value="anime" class="inline">
+                看动漫
+            </label>
+            <label for="manga" class="in-input">
+                <input id="manga" type="checkbox" name="active" value="manga" class="inline">
+                看漫画
+            </label>
+            <label for="song" class="in-input">
+                <input id="song" type="checkbox" name="active" value="song" class="inline">
+                听ACG歌曲
+            </label>
+            <label for="anime convention" class="in-input">
+                <input id="anime convention" type="checkbox" name="active" value="convention" class="inline">
+                逛漫展
+            </label>
+            <label for="novel" class="in-input">
+                <input id="novel" type="checkbox" name="active" value="novel" class="inline">
+                看小说（轻小说）
+            </label>
+            <label for="game" class="in-input">
+                <input id="game" type="checkbox" name="active" value="game" class="inline">
+                玩二次元类型游戏
+            </label>
+            <label for="otheractive" class="in-input">
+                <input value="otheractive" id="otheractive" type="checkbox" name="active" class="inline">
+                其他
+            </label>
+            <label for="OtherActive" class="in-input">
+                <input id="OtherActive" type="text" style="display: none;">
+            </label>
+        </div>
+        <div id="story">
+            <p>如果可以的话，能与我分享你和二次元的故事吗？</p>
+            <label for="story">
+                <textarea placeholder="分享你与二次元的故事" class="in-input"></textarea>
+            </label>
+        </div>
+        <div id="botton">
+            <button type="submit" id="submit">提交</button>
+        </div>
+    </form>
+</body>
+
+</html>
